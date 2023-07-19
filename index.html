@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/font-awesome.min.css" integrity="sha256-46qynGAkLSFpVbEBOg43gvvNhfrOj+BwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1917243470288620"
+     crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style_hidden.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <title>JASMEET SETHI</title>
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.popup-screen {
+  z-index: 999999;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: 0.5s ease;
+  transition-property: visibility;
+}
+
+.popup-screen.active {
+  visibility: visible;
+}
+
+.popup-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
+  transform: scale(0);
+  transition: 0.5s ease;
+  transition-property: transform;
+}
+
+.popup-screen.active .popup-box {
+  transform: scale(1);
+}
+
+.popup-box h2 {
+  font-size: 2.1em;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.popup-box p {
+  font-size: 1em;
+  margin-bottom: 30px;
+}
+
+.popup-box .btn {
+  color: #fff;
+  background: red;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 7px 27px;
+  border-radius: 3px;
+}
+
+.close-btn {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.3s ease;
+  transition-property: opacity;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+p {
+  color: black;
+  font-size: 1.4rem;
+  margin-top: 5px;
+  line-height: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 300;
+  color: black;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+.section-title span {
+  color: #c842f5;
+}
+
+.cta {
+  display: inline-block;
+  padding: 10px 30px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid #c842f5;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-top: 30px;
+  transition: 0.3s ease;
+  transition-property: background-color, color;
+}
+
+.cta:hover {
+  color: white;
+  background-color: #c842f5;
+}
+
+.brand h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+.brand h1 span {
+  color: #c842f5;
+}
+/* Header section */
+
+#header {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: auto;
+}
+
+#header .header {
+  min-height: 8vh;
+  background-color: rgba(31, 30, 30, 0.24);
+  transition: 0.3s ease background-color;
+}
+
+#header .nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 1300px;
+  padding: 0 10px;
+}
+
+#header .nav-list ul {
+  list-style: none;
+  position: absolute;
+  background-color: rgb(31, 30, 30);
+  width: 100vw;
+  height: 100vh;
+  left: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: 0.5s ease left;
+}
+
+#header .nav-list ul.active {
+  left: 0%;
+}
+
+#header .nav-list ul a {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  padding: 20px;
+  display: block;
+}
+
+#header .nav-list ul a::after {
+  content: attr(data-after);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  color: rgba(240, 248, 255, 0.021);
+  font-size: 13rem;
+  letter-spacing: 50px;
+  z-index: -1;
+  transition: 0.3s ease letter-spacing;
+}
+
+#header .nav-list ul li:hover a::after {
+  transform: translate(-50%, -50%) scale(1);
+  letter-spacing: initial;
+}
+
+#header .nav-list ul li:hover a {
+  color: #c842f5;
+}
+
+#header .hamburger {
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  border: 3px solid white;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  transform: scale(0.8);
+  margin-right: 20px;
+}
+
+#header .hamburger:after {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  animation: hamburger_puls 1s ease infinite;
+}
+
+#header .hamburger .bar {
+  height: 2px;
+  width: 30px;
+  position: relative;
+  background-color: white;
+  z-index: -1;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-color: white;
+  transition: 0.3s ease;
+  transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+  top: 8px;
+}
+
+#header .hamburger .bar::before {
+  bottom: 8px;
+}
+
+#header .hamburger.active .bar::before {
+  bottom: 0;
+}
+
+#header .hamburger.active .bar::after {
+  top: 0;
+}
+/* End Header section */
+/* Hero Section */
+
+#hero {
+  background-image: url(./img/hero-bg.jfif);
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+  z-index: 1;
+}
+
+#hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+#hero .hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+  justify-content: flex-start;
+}
+
+#hero h1 {
+  display: block;
+  width: fit-content;
+  font-size: 4rem;
+  position: relative;
+  color: transparent;
+  animation: text_reveal 0.5s ease forwards;
+  animation-delay: 1s;
+}
+
+#hero h1:nth-child(1) {
+  animation-delay: 1s;
+}
+
+#hero h1:nth-child(2) {
+  animation-delay: 2s;
+}
+
+#hero h1:nth-child(3) {
+  animation: text_reveal_name 0.5s ease forwards;
+  animation-delay: 3s;
+}
+
+#hero h1 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: #c842f5;
+  animation: text_reveal_box 1s ease;
+  animation-delay: 0.5s;
+}
+
+#hero h1:nth-child(1) span {
+  animation-delay: 0.5s;
+}
+
+#hero h1:nth-child(2) span {
+  animation-delay: 1.5s;
+}
+
+#hero h1:nth-child(3) span {
+  animation-delay: 2.5s;
+}
+/* End Hero Section */
+/* Services Section */
+
+#services .services {
+  flex-direction: column;
+  text-align: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+#services .service-top {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#services .service-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+#services .service-item {
+  flex-basis: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 10px;
+  background-image: url(./img/img-1.png);
+  background-size: cover;
+  margin: 10px 5%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#services .service-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+#services .service-bottom .icon {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#services .service-item h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+#services .service-item p {
+  color: white;
+  text-align: left;
+}
+/* End Services Section */
+/* Projects section */
+
+#projects .projects {
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+#projects .projects-header h1 {
+  margin-bottom: 50px;
+}
+
+#projects .all-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#projects .project-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#projects .project-info {
+  padding: 30px;
+  flex-basis: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  color: white;
+}
+
+#projects .project-info h1 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+#projects .project-info h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+#projects .project-info p {
+  color: white;
+}
+
+#projects .project-img {
+  flex-basis: 50%;
+  flex-basis: 20%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+#projects .project-img:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  opacity: 0.7;
+}
+
+#projects .project-img img {
+  transition: 0.3s ease transform;
+}
+
+#projects .project-item:hover .project-img img {
+  transform: scale(1.1);
+}
+/* End Projects section */
+/* About Section */
+
+#about .about {
+  flex-direction: column-reverse;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px;
+}
+
+#about .col-left {
+  width: 250px;
+  height: 360px;
+}
+
+#about .col-right {
+  width: 100%;
+}
+
+#about .col-right h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  margin-bottom: 10px;
+}
+
+#about .col-right p {
+  margin-bottom: 20px;
+}
+
+#about .col-right .cta {
+  color: black;
+  margin-bottom: 50px;
+  padding: 10px 20px;
+  font-size: 2rem;
+}
+
+#about .col-left .about-img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border: 10px solid white;
+}
+
+#about .col-left .about-img::after {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 19px;
+  height: 98%;
+  width: 98%;
+  border: 7px solid #c842f5;
+  z-index: -1;
+}
+/* End About Section */
+/* contact Section */
+
+#contact .contact {
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+#contact .contact-items {
+  /* max-width: 400px; */
+  width: 100%;
+}
+
+#contact .contact-item {
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 0px 18px 0 #0000002c;
+  transition: 0.3s ease box-shadow;
+}
+
+#contact .contact-item:hover {
+  box-shadow: 0px 0px 5px 0 #0000002c;
+}
+
+#contact .icon {
+  width: 70px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#contact .contact-info h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+#contact .contact-info h2 {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+/*End contact Section */
+/* Footer*/
+
+#footer {
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+#footer .footer {
+  min-height: 200px;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+#footer h2 {
+  color: white;
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#footer .social-icon {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+#footer .social-item {
+  height: 50px;
+  width: 50px;
+  margin: 0 5px;
+}
+
+#footer .social-item img {
+  filter: grayscale(1);
+  transition: 0.3s ease filter;
+}
+
+#footer .social-item:hover img {
+  filter: grayscale(0);
+}
+
+#footer p {
+  color: white;
+  font-size: 1.3rem;
+}
+/*
+    End Footer 
+    extarea {
+        resize: none;
+    }
+    
+    .text {
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+    
+    .svg-inline--fa {
+      vertical-align: -0.200em;
+    }
+    
+    .rounded-social-buttons {
+      text-align: center;
+    }
+    
+    .rounded-social-buttons .social-button {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      width: 3.125rem;
+      height: 3.125rem;
+      border: 0.125rem solid transparent;
+      padding: 0;
+      text-decoration: none;
+      text-align: center;
+      color: #fefefe;
+      font-size: 1.5625rem;
+      font-weight: normal;
+      line-height: 2em;
+      border-radius: 1.6875rem;
+      transition: all 0.5s ease;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .rounded-social-buttons .social-button:hover,
+    .rounded-social-buttons .social-button:focus {
+      -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+    
+    .rounded-social-buttons .fa-twitter,
+    .fa-facebook-f,
+    .fa-linkedin,
+    .fa-youtube,
+    .fa-instagram {
+      font-size: 25px;
+    }
+    
+    .rounded-social-buttons .social-button.facebook {
+      background: #3b5998;
+    }
+    
+    .rounded-social-buttons .social-button.facebook:hover,
+    .rounded-social-buttons .social-button.facebook:focus {
+      color: #3b5998;
+      background: #fefefe;
+      border-color: #3b5998;
+    }
+    
+    .rounded-social-buttons .social-button.twitter {
+      background: #55acee;
+    }
+    
+    .rounded-social-buttons .social-button.twitter:hover,
+    .rounded-social-buttons .social-button.twitter:focus {
+      color: #55acee;
+      background: #fefefe;
+      border-color: #55acee;
+    }
+    
+    .rounded-social-buttons .social-button.linkedin {
+      background: #007bb5;
+    }
+    
+    .rounded-social-buttons .social-button.linkedin:hover,
+    .rounded-social-buttons .social-button.linkedin:focus {
+      color: #007bb5;
+      background: #fefefe;
+      border-color: #007bb5;
+    }
+    
+    .rounded-social-buttons .social-button.youtube {
+      background: #bb0000;
+    }
+    
+    .rounded-social-buttons .social-button.youtube:hover,
+    .rounded-social-buttons .social-button.youtube:focus {
+      color: #bb0000;
+      background: #fefefe;
+      border-color: #bb0000;
+    }
+    
+    .rounded-social-buttons .social-button.instagram {
+      background: #125688;
+    }
+    
+    .rounded-social-buttons .social-button.instagram:hover, 
+    .rounded-social-buttons .social-button.instagram:focus 
+    {
+      color: #125688;
+      background: #fefefe;
+      border-color: #125688;
+    }
+    /* Keyframes */
+
+@keyframes hamburger_puls {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes text_reveal_box {
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes text_reveal {
+  100% {
+    color: white;
+  }
+}
+
+@keyframes text_reveal_name {
+  100% {
+    color: #c842f5;
+    font-weight: 500;
+  }
+}
+/* End Keyframes */
+/* Media Query For Tablet */
+
+@media only screen and (min-width: 768px) {
+  .cta {
+    font-size: 2.5rem;
+    padding: 20px 60px;
+  }
+  h1.section-title {
+    font-size: 6rem;
+  }
+  /* Hero */
+  #hero h1 {
+    font-size: 7rem;
+  }
+  /* End Hero */
+  /* Services Section */
+  #services .service-bottom .service-item {
+    flex-basis: 45%;
+    margin: 2.5%;
+  }
+  /* End Services Section */
+  /* Project */
+  #projects .project-item {
+    flex-direction: row;
+  }
+  #projects .project-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  #projects .project-item {
+    height: 400px;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  #projects .all-projects .project-info {
+    height: 100%;
+  }
+  #projects .all-projects .project-img {
+    height: 100%;
+  }
+  /* End Project */
+  /* About */
+  #about .about {
+    flex-direction: row;
+  }
+  #about .col-left {
+    width: 600px;
+    height: 400px;
+    padding-left: 60px;
+  }
+  #about .about .col-left .about-img::after {
+    left: -45px;
+    top: 34px;
+    height: 98%;
+    width: 98%;
+    border: 10px solid #c842f5;
+  }
+  #about .col-right {
+    text-align: left;
+    padding: 30px;
+  }
+  #about .col-right h1 {
+    text-align: left;
+  }
+  /* End About */
+  /* contact  */
+  #contact .contact {
+    flex-direction: column;
+    padding: 100px 0;
+    align-items: center;
+    justify-content: center;
+    min-width: 20vh;
+  }
+  #contact .contact-items {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0;
+  }
+  #contact .contact-item {
+    width: 30%;
+    margin: 0;
+    flex-direction: row;
+  }
+  #contact .contact-item .icon {
+    height: 100px;
+    width: 100px;
+  }
+  #contact .contact-item .icon img {
+    object-fit: contain;
+  }
+  #contact .contact-item .contact-info {
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+  }
+  /* End contact  */
+}
+/* End Media Query For Tablet */
+/* Media Query For Desktop */
+/* Button used to open the contact form - fixed at the bottom of the page */
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+/* The popup form - hidden by default */
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+/* Add styles to the form container */
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+/* Full-width input fields */
+
+.form-container input[type='text'],
+.form-container input[type='password'] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+/* When the inputs get focus, do something */
+
+.form-container input[type='text']:focus,
+.form-container input[type='password']:focus {
+  background-color: #ddd;
+  outline: none;
+}
+/* Set a style for the submit/login button */
+
+.form-container .btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+/* Add a red background color to the cancel button */
+
+.form-container .cancel {
+  background-color: red;
+}
+/* Add some hover effects to buttons */
+
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 1200px) {
+  /* header */
+  #header .hamburger {
+    display: none;
+  }
+  #header .nav-list ul {
+    position: initial;
+    display: block;
+    height: auto;
+    width: fit-content;
+    background-color: transparent;
+  }
+  #header .nav-list ul li {
+    display: inline-block;
+  }
+  #header .nav-list ul li a {
+    font-size: 1.8rem;
+  }
+  #header .nav-list ul a:after {
+    display: none;
+  }
+  /* End header */
+  #services .service-bottom .service-item {
+    flex-basis: 22%;
+    margin: 1.5%;
+  }
+}
+
+.classname {
+  height: auto;
+}
+
+.class img {
+  margin-left: 10px;
+}
+
+#button button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 28px;
+  0padding: 20px;
+  width: 150px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin: 0px;
+}
+
+#button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button :after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#button :hover span {
+  padding-right: 25px;
+}
+
+#button :hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/* End  Media Query For Desktop */
+
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#hero">
+                        <wix-image id="img_comp-j0s8kcaq_0" class="_1-6YJ _2Ms4G" data-image-info='{"containerId":"comp-j0s8kcaq","displayMode":"fit","imageData":{"width":450,"height":450,"uri":"21b326_2300b072eca642f6bd47b13aa3e4bb66~mv2.gif","displayMode":"fit"}}' data-has-bg-scroll-effect=""
+                            data-bg-effect-name="" data-is-svg="false" data-is-svg-mask="false" data-image-zoomed="" data-has-ssr-src="" data-src="https://static.wixstatic.com/media/21b326_2300b072eca642f6bd47b13aa3e4bb66~mv2.gif"><img src="https://static.wixstatic.com/media/21b326_2300b072eca642f6bd47b13aa3e4bb66~mv2.gif" alt="" role="none" style="
+                    width: 73px;
+                    height: 83px;
+                    object-fit: contain;
+                    object-position: center center;
+                  " />
+                        </wix-image>
+                        <h1><span>J</span>asmeet <span>S</span>ethi</h1>
+                    </a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                    </div>
+                    <ul>
+                        <li><a href="index.html" data-after="Home">Home</a></li>
+                        <li><a href="#projects" data-after="Projects">images</a></li>
+                        <li><a href="#about" data-after="About">About</a></li>
+                        <li><a href="#contact" data-after="Contact">Contact</a></li>
+                        <li>
+                            <a href="#services" data-after="Service">Projects</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Header -->
+
+    <!-- Hero Section  -->
+    <section id="hero" style="background-image: url(./img/images.jfif)">
+      <div class="hero container">
+        <div>
+          <h1>Hello, <span></span></h1>
+          <h1>Welcome To <span></span></h1>
+          <h1>My Website<span></span></h1>
+          <a href="videos/animenews.html" type="button" class="cta"
+            >Portfolio</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- End Hero Section  -->
+
+    <!-- Service Section -->
+    <section id="services">
+      <div class="services container">
+        <div class="service-top">
+          <h1 class="section-title">Pro<span>jec</span>ts</h1>
+          <p></p>
+        </div>
+        <div class="service-bottom">
+          <div class="service-item">
+            <div class="icon">
+              <img
+                src="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/64/000000/external-youtube-content-creator-xnimrodx-lineal-color-xnimrodx-2.png"
+              />
+            </div>
+            <h2>
+              WORK 1.<br> <br> STREAMING ANIME ON <br />
+              ANIME--DRUG ONLY!!<br> <br>
+            </h2>
+            <p>
+              <a id="button" href="https://animedrug.ml/" target="_blank">
+                <button><span>HERE</span></button></a
+              >
+            </p>
+          </div>
+          <div class="service-item">
+            <div class="icon">
+              <img
+                src= "https://img.icons8.com/external-justicon-lineal-color-justicon/128/external-blog-graphic-design-justicon-lineal-color-justicon.png"
+              />
+            </div>
+            <h2>WORK 2.<br> <br> JIXONE BLOG WEBSITE. <br />
+            have amazing projects & news.
+            </h2>
+         
+            <p>
+                <a id="button" href="http://jixone.ml/" target="_blank">
+                <button><span>HERE</span></button></a
+              >
+            </p>
+          </div>
+            <div class="service-item">
+            <div class="icon">
+             <img src="https://img.icons8.com/stickers/100/000000/coffee.png"/>
+            </div>
+            <h2>WORK 3.<br> <br> COFFEE SHOP <br />
+            (E-COMMERCE)
+             WITH A RESPONSIVE DESIGN. 
+            </h2>
+         
+            <p>
+                <a id="button" href="http://buycoffee.ml/" target="_blank">
+                <button><span>HERE</span></button></a
+              >
+            </p>
+          </div>
+        <!--  <div class="service-item">-->
+        <!--    <div class="icon">-->
+        <!--      <img-->
+        <!--        src="https://img.icons8.com/color/48/000000/domain--v1.png"-->
+        <!--      />-->
+        <!--    </div>-->
+        <!--    <h2>WORK 4.-->
+        <!--    <br>-->
+        <!--    <br> Crypto currency Tracker - coinchad -->
+        <!--    </h2>-->
+        <!--    <p>-->
+        <!--        <a id="button" href="bitcoin project/bitcoin live tracking/index.html" target="_blank">-->
+        <!--        <button><span>HERE</span></button></a></p>-->
+        <!--  </div>-->
+        <!--</div>-->
+              <div class="service-item">
+            <div class="icon">
+              <img
+                src="https://img.icons8.com/color/48/000000/domain--v1.png"
+              />
+            </div>
+            <h2>WORK 4.
+            <br>
+            <br> Face Dectection - open cv 
+            </h2>
+            <p>
+                <a id="button" href="face detection/index.html" target="_blank">
+                <button><span>HERE</span></button></a></p>
+          </div>
+        </div>
+        <!--
+                <div class="service-bottom">
+          <div class="service-item">
+            <div class="icon">
+              <img
+                src="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/64/000000/external-youtube-content-creator-xnimrodx-lineal-color-xnimrodx-2.png"
+              />
+            </div>
+            
+            <h2>
+              WORK 1.<br> <br> STREAMING ANIME ON <br />
+              ANIME--DRUG ONLY!!<br> <br>
+            </h2>
+            <p>
+              <a id="button" href="https://animedrug.ml/" target="_blank">
+                <button><span>HERE</span></button></a
+              >
+            </p>
+          </div>
+          <div class="service-item">
+            <div class="icon">
+              <img
+                src= "https://img.icons8.com/external-justicon-lineal-color-justicon/128/external-blog-graphic-design-justicon-lineal-color-justicon.png"
+              />
+            </div>
+            <h2>WORK 2.<br> <br> JIXONE BLOG WEBSITE. <br />
+            have amazing projects & news.
+            </h2>
+         
+            <p>
+                <a id="button" href="http://jixone.ml/" target="_blank">
+                <button><span>HERE</span></button></a
+              >
+            </p>
+          </div>
+            <div class="service-item">
+            <div class="icon">
+             <img src="https://img.icons8.com/stickers/100/000000/coffee.png"/>
+            </div>
+            <h2>WORK 3.<br> <br> COFFEE SHOP <br />
+            (E-COMMERCE)
+             WITH A RESPONSIVE DESIGN. 
+            </h2>
+         
+            <p>
+                <a id="button" href="http://buycoffee.ml/" target="_blank">
+                <button><span>HERE</span></button></a
+              >
+            </p>
+          </div>
+          <div class="service-item">
+            <div class="icon">
+              <img
+                src="https://img.icons8.com/color/48/000000/domain--v1.png"
+              />
+            </div>
+            <h2>WORK 4.
+            <br>
+            <br>
+            
+            </h2>
+            <p></p>
+          </div>
+        </div>
+      </div>
+      -->
+    </section>
+    <!-- End Service Section -->
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="projects container">
+        <div class="projects-header">
+          <h1 class="section-title">Some of my <span>Images</span></h1>
+        </div>
+        <div class="all-projects">
+          <div class="project-item">
+            <div class="project-info">
+              <h1>IMAGE 1</h1>
+              <h2>By --Antoine Griezmann--</h2>
+              <p>
+                Dreams can come true, but there is a secret. They’re realized
+                through the magic of persistence, determination, commitment,
+                passion, practice, focus and hard work. They happen a step at a
+                time, manifested over years, not weeks.
+              </p>
+            </div>
+            <div class="project-img">
+              <img src="./img/img.jpeg" alt="img" />
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-info">
+              <h1>IMAGE 2</h1>
+              <h2>By --Gordon B. Hinckley--</h2>
+              <p>
+                The price of success is hard work, dedication to the job at
+                hand, and the determination that whether we win or lose, we have
+                applied the best of ourselves to the task at hand.
+              </p>
+            </div>
+            <div class="project-img">
+              <img src="./img/img-3.jpeg" alt="img" />
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-info">
+              <h1>IMAGE 3</h1>
+              <h2>By --Alex Elle--</h2>
+              <p>
+                Determine never to be idle. No person will have occasion to
+                complain of the want of time, who never loses any. It is
+                wonderful how much may be done, if we are always doing.
+              </p>
+            </div>
+            <div class="project-img">
+              <img src="./img/img-4.jpeg" alt="img" />
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-info">
+              <h1>IMAGE 4</h1>
+              <h2>By --Lou Holtz--</h2>
+              <p>
+                Winners embrace hard work. They love the discipline of it, the
+                trade-off they’re making to win. Losers, on the other hand, see
+                it as punishment. And that’s the difference.
+              </p>
+            </div>
+            <div class="project-img">
+              <img src="./img/img-5.jpeg" alt="img" />
+            </div>
+          </div>
+          <div class="project-item">
+            <div class="project-info">
+              <h1>IMAGE 5</h1>
+              <h2>By --Malcolm Gladwell--</h2>
+              <p>
+                Hard work is a prison sentence only if it does not have meaning.
+                Once it does, it becomes the kind of thing that makes you grab
+                your wife around the waist and dance a jig.
+              </p>
+            </div>
+            <div class="project-img">
+              <img src="./img/img-6.jpeg" alt="img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Projects Section -->
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="about container">
+        <div class="col-left">
+          <div class="about-img">
+            <img src="./img/img-2.jfif" alt="img" />
+          </div>
+        </div>
+        <div class="col-right">
+          <h1 class="section-title">About <span>me</span></h1>
+          <h2>Front End Developer</h2>
+          <p>
+            hard worker who likes coding.<br />
+            and i know c,c++,java,java-script,html,css,bootstrap,tailwind
+            css,<br />
+            mongodb,express Js,php,Node js, React js,React native,My
+            SQL,DOM,etc<br />
+            i also know about robotics(arduino)<br />
+            Education: Dronacharya Group of Institutions<br />
+            Hometown:- New Delhi, Delhi<br />
+            Current City:- New Delhi, Delhi<br />
+            Languages: English, Hindi<br />
+            Interests: Music, Movies, Reading, Travelling, Photography, Gaming,
+            Coding;<br />
+          </p>
+          <a href="#" class="cta">GO TO HEADER</a>
+                </div>
+            </div>
+    </section>
+    <!-- End About Section -->
+    
+<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=570&amp;height=400&amp;hl=en&amp;q=vishwas nagar shahadara &amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://mcpepro.com/">MCPE</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact container">
+            <div>
+                <h1 class="section-title">Contact <span>info</span></h1>
+            </div>
+            <div class="contact-items">
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="https://img.icons8.com/external-dreamstale-green-shadow-dreamstale/
+              64/000000/external-mobile-phone-technology-dreamstale-green-shadow-dreamstale-2.png" />
+                    </div>
+                    <div class="contact-info">
+                        <h1>Phone</h1>
+                        <h2>+91 9891475624</h2>
+                        <h2></h2>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-email-business-kiranshastry-lineal-color-kiranshastry.png" />
+                    </div>
+                    <div class="contact-info">
+                        <h1>Email ME</h1>
+                        <button class="button_id">
+                <a href="mailto:sethimanish363@gmail.com">Here!</a>
+              </button>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="https://img.icons8.com/color/48/000000/address--v2.png" />
+                    </div>
+                    <div class="contact-info">
+                        <h1>Address</h1>
+                        <h2>NEW DELHI,INDIA</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Section -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="footer container">
+            <div class="brand">
+                <h1><span>J</span>asmeet <span>S</span>ethi</h1>
+            </div>
+            <h2>BLOG AND PORTFOLIO WEBSITE.</h2>
+
+            <div class="social-icon">
+                <div class="social-item">
+                    <a href="#" target="_blank">
+                        <img src="https://img.icons8.com/color/48/000000/facebook.png" />
+                    </a>
+                </div>
+                <div class="social-item">
+                    <a href="https://www.instagram.com/JASMEET.EXE/" target="_blank"><img src="https://img.icons8.com/color/48/000000/instagram-new--v2.png" />
+                    </a>
+                </div>
+                <div class="social-item">
+                    <a href="https://twitter.com/jasmeet7863" target="_blank">
+                        <img src="https://img.icons8.com/color/48/000000/twitter--v2.png" />
+                    </a>
+                </div>
+                <div class="social-item">
+                    <a href="#">
+                        <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
+                    </a>
+                </div>
+            </div>
+               <p>Copyright © 2021 <a href="https://www.instagram.com/jasmeet.exe" target="_blank">JASMEET SETHI </a>. All rights reserved</p>
+          <!--  <div class="contlol">
+                <h1>Contact Me</h1>
+                <p>
+                    Feel free to contact us and we will get back to you ass sson as we can.
+                </p>
+                
+                <form action="mail.php" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" />
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" />
+                    <label for="subject">Subject:</label>
+                    <input type="text" name="subject" id="subject" />
+                    <label for="message">Message</label>
+                    <textarea name="message" cols="30" rows="10"></textarea>
+                    <input type="submit" value="Send" />
+                </form>
+            
+            </div>
+            -->
+           
+    </section>
+    <!-- End Footer -->
+    <script src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+.home video {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-navigation {
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(80px);
+    margin-bottom: 12px;
+}
+
+.slider-navigation .nav-btn {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease;
+}
+
+.slider-navigation .nav-btn.active {
+    background: #2696E9;
+}
+
+.slider-navigation .nav-btn:not(:last-child) {
+    margin-right: 20px;
+}
+
+.slider-navigation .nav-btn:hover {
+    transform: scale(1.2);
+}
+
+.video-slide {
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+.video-slide.active {
+    clip-path: circle(150% at 0 50%);
+    transition: 2s ease;
+    transition-property: clip-path;
+}
+
+nav {
+    overflow:hidden;
+    position:relative;
+    width:910px;
+    background:url("../images/menu-bg.png") no-repeat scroll left top transparent;
+    margin:10px auto;
+    padding:10px;
+}
+nav ul {
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+}
+nav ul li {
+    background:url("../images/menu-devider.gif") no-repeat scroll left top transparent;
+    float:left;
+    font-size:1.5em;
+    line-height:normal;
+    margin-left:-2px;
+    overflow:hidden;
+    padding:0;
+}
+nav ul li a {
+    color:#000;
+    display:block;
+    font-family:Tahoma,Arial,Helvetica,serif;
+    font-weight:400;
+    text-decoration:none;
+    text-transform:none;
+    padding:3px 24px 5px 26px;
+}
+nav ul li a:hover {
+    text-decoration:none;
+    color:#fc0;
+}
